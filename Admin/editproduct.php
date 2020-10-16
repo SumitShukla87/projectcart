@@ -36,7 +36,7 @@
 
 					<div class="tab-content" id="tab2">
 					
-                    <form action="#" method="post" enctype="multipart/form-data">
+                    <form action="updateproduct.php" method="post" enctype="multipart/form-data">
 							
                     <?php 
 
@@ -49,6 +49,9 @@
                     if ($result->num_rows > 0) {
                         // output data of each row
                         while ($row = $result->fetch_assoc()) {
+
+							echo'<input type="hidden" id="medium-input"  name="id" value="'.$row['id'].'" />';
+                           
                                 echo"<p>";
 									echo"<label>Name</label>";
 									echo'<input class="text-input medium-input" type="text" id="medium-input"  name="productname" value="'.$row['name'].'" />';
@@ -64,9 +67,14 @@
                                 echo'<img src='.$row['image'].' height="100" width="100">';
                                 echo'<input type="file" name="uploadfile" required value=""/>';
 								echo"</p>";
-							
-                                
-                                echo"<p>";
+																	
+							} 
+					} else {
+								echo "0 results";
+					}
+
+								?>
+                                <!-- echo"<p>";
 								echo"<label>Category</label>";
 								echo'<select name="dropdown" class="small-input">';
 								
@@ -91,42 +99,46 @@
 							
 								echo'<p>';
 								echo'<label>Tags</label>';
-								$a = $row['tag'];
-								$tag = explode(",", $a)
-								if(in_array())
-                        
+								echo"<input type='checkbox' name='tag[]' value=".$row['tags']."> ".$row['tags']."<br>";
+									
+								
+								$a = $row['tags'];
+								$tag = explode(",", $a);
+								if (in_array($row["tags"], $tag)){
+									echo"checked";
+								}
+								
+								echo'</p>';
 
-                        }
-                    } else {
-                        echo "0 results";
-                    }
+                        } -->
+                    
 
-                            ?>
+                           
 							<fieldset> <!-- Set class to "column-left" or "column-right" on fieldsets to divide the form into columns -->
 								
 							
-								<!-- <p>
+								<p>
 								<label>Category</label>
 								<?php 
 								
-							//	$sql = "SELECT * from categories";
-								//$result =$conn->query($sql);
-								//$row_count = $result->num_rows;
-								//?>
+								$sql = "SELECT * from categories";
+								$result =$conn->query($sql);
+								$row_count = $result->num_rows;
+								?>
 								<select name="dropdown" class="small-input">
-								//<?php
-								//for ($i=1;$i<=$row_count;$i++) {
+								<?php
+								for ($i=1;$i<=$row_count;$i++) {
 
-								//	   $row = $result->fetch_assoc();
-								 //   ?>
-									//<option value="<?php echo $row["category_id"] ?>"><?php echo $row["name"] ?></option>
-									 //   <?php	   
-								//}
-								//?>
+									   $row = $result->fetch_assoc();
+								   ?>
+									<option value="<?php echo $row["category_id"] ?>"><?php echo $row["name"] ?></option>
+									    <?php	   
+								}
+								?>
 								</select> 
-								</p> -->
+								</p> 
 								
-								<p>
+								 <p>
 									<label>Tags</label>
 								<?php 
 								
@@ -154,7 +166,7 @@
 								</p>
 								
 								<p>
-									<input class="button" type="submit" name="submit" value="Add Product" />
+									<input class="button" type="submit" name="submit" value="Update Product" />
 								</p>
 								
 							</fieldset>

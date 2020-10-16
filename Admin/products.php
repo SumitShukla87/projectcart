@@ -55,8 +55,8 @@
 								   <th>Product Image</th>
 								   <th>Product Category</th>
 								   <th>Tag</th>
-								   <th>Product Description</th>
 								   <th>Product Color</th>
+								   <th>Product Description</th>
 								   <th>Action</th>
 
 								</tr>
@@ -80,8 +80,8 @@
 																	echo'<td><img src='.$row['image'].' height="100" width="100"></td>';
 																	echo'<td>'.$row['category'].'</td>';
 																	echo'<td>'.$row['tags'].'</td>';
-																	echo'<td>'.$row['desciption'].'</td>';
 																	echo'<td><input type="color" value="'.$row['color'].'" disabled></td>';
+																	echo'<td>'.$row['desciption'].'</td>';
 																	echo'<td>
 																		<!-- Icons -->
 																		<a href="editproduct.php?id='.$row['id'].'" title="Edit"><img src="resources/images/icons/pencil.png" alt="Edit" /></a>
@@ -165,15 +165,31 @@
 								}
 								?>
 								</p>
+								<p>
+									<label>Choose Color</label>
+								<?php 
+								
+								$sql = "SELECT * from color";
+								$result =$conn->query($sql);
+								$row_count = $result->num_rows;
+								?>
+
+								<?php
+								for ($i=1;$i<=$row_count;$i++) {
+
+									   $row = $result->fetch_assoc();
+								    ?>
+                                    <input type="checkbox" name="color[]" value="<?php echo $row["id"] ?>"><input type="color" value="<?php echo $row["color_name"] ?>"><br>
+									    <?php	   
+								}
+								?>
+								</p>
 							
 								<p>
 									<label>Description</label>
 									<textarea class="text-input textarea wysiwyg" id="textarea" name="description" cols="79" rows="15"></textarea>
 								</p>
-								<p>
-								<label>Choose Color </label>
-								<input type="color" name="color"> 
-								</p>
+								
 
 								
 								

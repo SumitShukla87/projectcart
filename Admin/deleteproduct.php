@@ -5,7 +5,7 @@
 
     $sql = "DELETE FROM products where`id`='".$id."'";
 
-if ($conn->query($sql) === true) {
+if ($conn->query($sql) == true) {
 
         header("location:products.php");
       

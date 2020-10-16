@@ -2,7 +2,7 @@
 	<div id="sidebar-wrapper"> <!-- Sidebar with logo and menu -->
 	<?php
 		$filename = basename($_SERVER['REQUEST_URI']);
-		$productmenu = array('products.php','categories.php','producttags.php');
+		$productmenu = array('products.php','categories.php','producttags.php' , 'productcolor.php');
 	
 	?>
 			
@@ -34,6 +34,9 @@
 					<li><a <?php if ($filename=='products.php' ) :?> class="current" <?php endif;?> href="products.php">Manage Product</a></li> <!-- Add class "current" to sub menu items also -->
 						<li><a  <?php if ($filename=='categories.php' ) :?> class="current" <?php endif;?> href="categories.php">Manage Categories</a></li>
 						<li><a <?php if ($filename=='producttags.php' ) :?> class="current" <?php endif;?> href="producttags.php">Manage Tags</a></li>
+						<li><a <?php if ($filename=='productcolor.php') :?> class="current" <?php endif;?> href="productcolor.php">Manage Colors</a></li>
+								
+					
 					</ul>
 				</li>
 				

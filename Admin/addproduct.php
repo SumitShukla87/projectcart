@@ -14,28 +14,28 @@ if (isset($_POST['submit'])) {
     $category = isset($_POST['dropdown'])?$_POST['dropdown']:'';
     $tag = implode(' ', $_POST['tag']);
     $description = isset($_POST['description'])?$_POST['description']:'';
-    $color = isset($_POST['color'])?$_POST['color']:'';
+    $color = implode(' ', $_POST['color']);
  
-    if (sizeof($errors)==0) {
+    echo $tag;
 
         // Insert the data into the Table        
-            $sql = "INSERT INTO products (`name`, `price`, `image`, `category` ,`tags` , `desciption` ,`color`) VALUES ('".$productname."','".$productprice."','".$folder."' , '".$category."' , '".$tag."' , '".$description."' , '".$color."')";
+            $sql = "INSERT INTO products (`name`, `price`, `image`, `category` ,`tags` ,`color` , `desciption` ) VALUES ('".$productname."','".$productprice."','".$folder."' , '".$category."' , '".$tag."' , '".$color."' , '".$description."' )";
 
-        if ($conn->query($sql) === true) {
+    if ($conn->query($sql) === true) {
 
-                        echo '<script>alert("New record created successfully")</script>';
-                        header("location:products.php");
+                    echo '<script>alert("New record created successfully")</script>';
+                  
 
-                            
-        } else {
-                   echo $conn->error;
-        }
+                        
+    } else {
+                echo $conn->error;
+    }
 
 
     
        
         
-    } 
+  
     
 }
 ?>
