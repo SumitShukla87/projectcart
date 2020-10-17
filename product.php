@@ -70,40 +70,40 @@
 												if ($result->num_rows > 0) {
 																while ($row = $result->fetch_assoc()) {
 
-                                  $image = $row['image'];
-                                  $price = $row['price'] ;
-                                  $name = $row['name'];
-                                  
-                    ?>
-              <ul class="aa-product-catg">
-                <!-- start single product item -->
-                <li>
-                  <figure>
+                                                          $image = $row['image'];
+                                                          $price = $row['price'] ;
+                                                          $name = $row['name'];
+                                                          $desc= $row['desciption'];
+                                                          
+                                            ?>
+                                      <ul class="aa-product-catg">
+                                        <!-- start single product item -->
+                                        <li>
+                                          <figure>
 
-								
-											
-											 
-												
-                    <a class="aa-product-img" href="#"><img src="<?php echo $image?>"></a>
-                    
-                    <a class="aa-add-card-btn"href="#"><span class="fa fa-shopping-cart"></span>Add To Cart</a>
-                    <figcaption>
-                      <h4 class="aa-product-title"><a href="#"><?php echo $name?></a></h4>
-                      <span class="aa-product-price">$45.50</span><span class="aa-product-price"><del>$65.50</del></span>
-                      <p class="aa-product-descrip">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Numquam accusamus facere iusto, autem soluta amet sapiente ratione inventore nesciunt a, maxime quasi consectetur, rerum illum.</p>
-                    </figcaption>
-                  </figure>                         
-                  <div class="aa-product-hvr-content">
-                   <a href="#" data-toggle2="tooltip" data-placement="top" title="Quick View" data-toggle="modal" data-target="#quick-view-modal"><span class="fa fa-search"></span></a>                            
-                  </div>
-                 
-                  <!-- product badge -->
-                  </li>
-                </ul>
-                <?php 
+                                        
+                                              
+                                              
+                                                
+                                            <a class="aa-product-img" href="#"><img src="<?php echo $image?>" width="150px" height="200px"></a>
+                                            
+                                            <a class="aa-add-card-btn"href="#"><span class="fa fa-shopping-cart"></span>Add To Cart</a>
+                                            <figcaption>
+                                              <h4 class="aa-product-title"><a href="#"><?php echo $name?></a></h4>
+                                              <span class="aa-product-price">$45.50</span><span class="aa-product-price"><del>$65.50</del></span>
+                                              <p class="aa-product-descrip"><?php echo $desc?></p> </figcaption>
+                                          </figure>                         
+                                          <div class="aa-product-hvr-content">
+                                          <a href="#" data-toggle2="tooltip" data-placement="top" title="Quick View" data-toggle="modal" data-target="#quick-view-modal"><span class="fa fa-search"></span></a>                            
+                                          </div>
+                                        
+                                          <!-- product badge -->
+                                          </li>
+                                        </ul>
+                                        <?php 
                                 }
-                              }
-                                ?> 
+            }
+                        ?> 
               <!-- quick view modal -->                  
               <div class="modal fade" id="quick-view-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
                 <div class="modal-dialog">
@@ -224,7 +224,7 @@
                 if($result->num_rows>0) {
                 while ($row = $result->fetch_assoc()) {
                   ?>
-                  <li><a href="#"><?php echo $row["name"] ?></a></li>
+                  <li><a href="filtercategory.php?id=<?php echo $row['category_id'] ?>"><?php echo $row["name"] ?></a></li>
                
                   <?php
                 }
