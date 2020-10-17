@@ -159,6 +159,22 @@
 								</p>
 								
 								
+								<?php 
+								
+								$sql = "SELECT * from color";
+								$result =$conn->query($sql);
+								$row_count = $result->num_rows;
+								
+								for ($i=1;$i<=$row_count;$i++) {
+
+									   $row = $result->fetch_assoc();
+								    ?>
+                                    <input type="checkbox" name="color[]" value="<?php echo $row["id"] ?>"><input type="color" value="<?php echo $row["color_name"] ?>"><br>
+									    <?php	   
+								}
+								?>
+								</p>
+								</p>
 								
 								<p>
 									<label>Description</label>

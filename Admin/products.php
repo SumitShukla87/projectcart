@@ -172,9 +172,7 @@
 								$sql = "SELECT * from color";
 								$result =$conn->query($sql);
 								$row_count = $result->num_rows;
-								?>
-
-								<?php
+								
 								for ($i=1;$i<=$row_count;$i++) {
 
 									   $row = $result->fetch_assoc();

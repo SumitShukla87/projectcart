@@ -10,21 +10,15 @@ if (isset($_POST['submit'])) {
     $category = isset($_POST['dropdown'])?$_POST['dropdown']:'';
     $tag = implode(' ', $_POST['tag']);
     $description = isset($_POST['description'])?$_POST['description']:'';
-    $color = isset($_POST['color'])?$_POST['color']:'';
+    $color = implode(' ', $_POST['color']);
   
 
-   
-    echo $productname;
-    echo $productprice;
-    echo $category;
-    echo $tag;
-    echo $description;
     if (isset($_FILES["uploadfile"]["name"])&& ($_FILES["uploadfile"]["name"]!="")) {
 
             $tempname = $_FILES["uploadfile"]["tmp_name"]; 
             $filename = $_FILES["uploadfile"]["name"];    
             $folder = "image/".$filename; 
-            echo $folder; 
+
             move_uploaded_file($tempname, "$folder");
     } else {
         echo"Not Updated";
@@ -34,7 +28,7 @@ if (isset($_POST['submit'])) {
     
 
         // Update the data into the Table        
-         $sql = "UPDATE  products SET `name`='".$productname."', `price`='".$productprice."', `image` = '".$folder."', `category` = '".$category."' ,`tags`='".$tag."', `color`= '".$color."',`desciption`='".$description."' where `id`='".$id."'";
+         $sql = "UPDATE  products SET `name`='".$productname."', `price`='".$productprice."', `image` = '".$folder."', `category` = '".$category."' ,`tags`='".$tag."',`desciption`='".$description."', `color`= '".$color."' where `id`='".$id."'";
 
 
     
