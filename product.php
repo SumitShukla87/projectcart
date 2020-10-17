@@ -65,58 +65,45 @@
               </div>
             </div>
             <div class="aa-product-catg-body">
-              <ul class="aa-product-catg">
-                <!-- start single product item -->
-                <li>
-                  <figure>
-                    <!-- <?php $sql = "SELECT * from products";
+            <?php $sql = "SELECT * from products";
 												$result =$conn->query($sql);
 												if ($result->num_rows > 0) {
 																while ($row = $result->fetch_assoc()) {
 
                                   $image = $row['image'];
-                                  ?>
-																// echo"<tr>";
-																	// echo'<td>'.$row['id'].'</td>';
-																	// echo'<td>'.$row['name'].'</td>';
-																	// echo'<td>'.$row['price'].'</td>';
-																	// echo'<td><img src='.$row['image'].' height="100" width="100"></td>';
-																	// echo'<td>'.$row['category'].'</td>';
-																	// echo'<td>'.$row['tags'].'</td>';
-																	// echo'<td><input type="color" value="'.$row['color'].'" disabled></td>';
-																	// echo'<td>'.$row['desciption'].'</td>';
-												// 					echo'<td>
-												// 					 Icons 
-												// 						<a href="editproduct.php?id='.$row['id'].'" title="Edit"><img src="resources/images/icons/pencil.png" alt="Edit" /></a>
-												// 						<a href="deleteproduct.php?id='.$row['id'].'" title="Delete"><img src="resources/images/icons/cross.png" alt="Delete" /></a> 
-												// 						<a href="editproduct.php?id='.$row['id'].'" title="Edit Meta"><img src="resources/images/icons/hammer_screwdriver.png" alt="Edit Meta"/></a>
-												// 					</td>';
-												// 				echo"</tr>";
-												// 				} 
-												// }  
-											-->
+                                  $price = $row['price'] ;
+                                  $name = $row['name'];
+                                  
+                    ?>
+              <ul class="aa-product-catg">
+                <!-- start single product item -->
+                <li>
+                  <figure>
+
+								
+											
 											 
 												
                     <a class="aa-product-img" href="#"><img src="<?php echo $image?>"></a>
-                    <?php 
-                                }
-                              }
-                                ?> 
+                    
                     <a class="aa-add-card-btn"href="#"><span class="fa fa-shopping-cart"></span>Add To Cart</a>
                     <figcaption>
-                      <h4 class="aa-product-title"><a href="#">This is Title</a></h4>
+                      <h4 class="aa-product-title"><a href="#"><?php echo $name?></a></h4>
                       <span class="aa-product-price">$45.50</span><span class="aa-product-price"><del>$65.50</del></span>
                       <p class="aa-product-descrip">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Numquam accusamus facere iusto, autem soluta amet sapiente ratione inventore nesciunt a, maxime quasi consectetur, rerum illum.</p>
                     </figcaption>
                   </figure>                         
                   <div class="aa-product-hvr-content">
-                    <a href="#" data-toggle="tooltip" data-placement="top" title="Add to Wishlist"><span class="fa fa-heart-o"></span></a>
-                    <a href="#" data-toggle="tooltip" data-placement="top" title="Compare"><span class="fa fa-exchange"></span></a>
-                    <a href="#" data-toggle2="tooltip" data-placement="top" title="Quick View" data-toggle="modal" data-target="#quick-view-modal"><span class="fa fa-search"></span></a>                            
+                   <a href="#" data-toggle2="tooltip" data-placement="top" title="Quick View" data-toggle="modal" data-target="#quick-view-modal"><span class="fa fa-search"></span></a>                            
                   </div>
+                 
                   <!-- product badge -->
-                  <span class="aa-badge aa-sale" href="#">SALE!</span>
-                </li>
+                  </li>
+                </ul>
+                <?php 
+                                }
+                              }
+                                ?> 
               <!-- quick view modal -->                  
               <div class="modal fade" id="quick-view-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
                 <div class="modal-dialog">

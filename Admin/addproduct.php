@@ -24,6 +24,7 @@ if (isset($_POST['submit'])) {
     if ($conn->query($sql) === true) {
 
                     echo '<script>alert("New record created successfully")</script>';
+                    header("location:products.php");
                   
 
                         
