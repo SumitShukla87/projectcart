@@ -50,7 +50,7 @@
 												while ($row = $result->fetch_assoc()) {
 														echo"<p>";
 															echo"<label>Color</label>";
-															echo'<td><input type="color"  name="color" value="'.$row['color_name'].'" ></td>';
+															echo'<input type="color"  name="color" value="'.$row['color_name'].'" >';
 													        echo'<input type="hidden"   name="id" value="'.$row['id'].'" />';
 													
 															echo"</p>";
