@@ -2,7 +2,7 @@
 <?php include('header.php');?>
 <?php 
 $id = $_REQUEST['id'];
-echo $id;
+echo $id; 
 
 
 $sql = "SELECT * from products";

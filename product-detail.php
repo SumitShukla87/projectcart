@@ -7,8 +7,7 @@
       <div class="menu-area">
         <!-- Navbar -->
         <div class="navbar navbar-default" role="navigation">
-          <?php include('navbar.php');
-          ?>
+          <?php include ('navbar.php'); ?>
         </div>
       </div> 
       </div>
