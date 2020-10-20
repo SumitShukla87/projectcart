@@ -243,7 +243,7 @@
                 if($result->num_rows>0) {
                 while ($row = $result->fetch_assoc()) {
                   ?>
-                  <a href="#"><?php echo $row["name"] ?></a>
+                  <a href="filtertag.php?id=<?php echo $row['tag_id'] ?>"><?php echo $row["name"] ?></a>
                
                   <?php
                 }
@@ -277,7 +277,7 @@
                 if($result->num_rows>0) {
                   while ($row = $result->fetch_assoc()) {
                     ?>
-                    <a href="#" ><input type="color" value="<?php echo $row["color_name"] ?>"></a>
+                    <a href="filtercolor.php?id=<?php echo $row['id'] ?>" ><input type="color" value="<?php echo $row["color_name"] ?> disabled"></a>
                 
                     <?php
                   }

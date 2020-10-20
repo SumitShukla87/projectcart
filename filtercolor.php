@@ -65,10 +65,9 @@
               </div>
             </div>
             <div class="aa-product-catg-body">
-
-            <?php
+            <?php 
             $id = $_GET['id'];
-            $sql = "SELECT * from products WHERE `category`=$id";
+            $sql = "SELECT * from products WHERE color = $id";
 												$result =$conn->query($sql);
 												if ($result->num_rows > 0) {
 																while ($row = $result->fetch_assoc()) {
@@ -280,7 +279,7 @@
                 if($result->num_rows>0) {
                   while ($row = $result->fetch_assoc()) {
                     ?>
-                   <a href="filtercolor.php?id=<?php echo $row['id'] ?>" ><input type="color" value="<?php echo $row["color_name"] ?> disabled"></a>
+                    <a href="filtercolor.php?id=<?php echo $row['id'] ?>" ><input type="color" value="<?php echo $row["color_name"] ?> disabled"></a>
                 
                     <?php
                   }
