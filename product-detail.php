@@ -77,8 +77,8 @@
                       <p class="aa-product-avilability">Avilability: <span>In stock</span></p>
                     </div>
                     <p> <?php echo $desc?></p> 
-                    <h4>Size</h4>
-                    <div class="aa-prod-view-size">
+                    <!--<h4>Size</h4>
+                     <div class="aa-prod-view-size">
                       <a href="#">S</a>
                       <a href="#">M</a>
                       <a href="#">L</a>
@@ -91,13 +91,11 @@
                       <a href="#" class="aa-color-pink"></a>                      
                       <a href="#" class="aa-color-black"></a>
                       <a href="#" class="aa-color-white"></a>                      
-                    </div>
+                    </div> -->
+                    <h4>Quantity</h4>
                     <div class="aa-prod-quantity">
                     <form action="insertcart.php" method="POST">
-                    <input type="hidden" name="name" value="<?php $name ?>">
-                    <input type="hidden" name="price" value="<?php $price ?>">
-                    <input type="hidden" name="img" value="<?php $image ?>">
-
+                    
                         <select id="" name="quant">
                           <option selected="1" value="1">1</option>
                           <option value="2">2</option>
@@ -106,13 +104,18 @@
                           <option value="5">5</option>
                           <option value="6">6</option>
                         </select>
+                        
+                        <input type="hidden" name="name" value="<?php echo $name ?>">
+                         <input type="hidden" name="price" value="<?php echo $price ?>">
+                        <input type="hidden" name="img" value="<?php echo $image ?>">
+
                       
                       <p class="aa-prod-category">
                         Category: <a href="#">Polo T-Shirt</a>
                       </p>
                     </div>
                     <div class="aa-prod-view-bottom">
-                      <input type="submit" class="aa-add-to-cart-btn" href="" name="submit" valur="Add To Cart">
+                      <input type="submit" class="aa-add-to-cart-btn"  name="submit" value="Add To Cart">
                       </form>
                     </div>
                   </div>
