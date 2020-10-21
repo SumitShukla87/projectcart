@@ -85,7 +85,7 @@
                                               
                                               
                                                 
-                                            <a class="aa-product-img" href="#"><img src="<?php echo $image?>" width="150px" height="200px"></a>
+                                            <a class="aa-product-img" href="#"><img src="admin/<?php echo $image?>" width="150px" height="200px"></a>
                                             
                                             <a class="aa-add-card-btn"href="product-detail.php?id=<?php echo $row['id'] ?>"><span class="fa fa-shopping-cart"></span>Add To Cart</a>
                                             <figcaption>
