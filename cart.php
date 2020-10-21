@@ -1,4 +1,6 @@
 <?php include('header.php')?>
+<?php include('admin/config.php')?>
+
   <!-- / header section -->
   
   <!-- menu -->
@@ -42,53 +44,81 @@
            <div class="cart-view-table">
              <form action="">
                <div class="table-responsive">
+               <?php $sql = "SELECT * from cartdata";
+                  $result =$conn->query($sql);
+                if ($result->num_rows > 0) {
+                    while ($row = $result->fetch_assoc()) {
+
+
+                        $name = $row['name'];
+                        $image = $row['image'];                      
+                        $price = $row['price'] ;
+                        
+                        $quant= $row['quantity'];
+                        $product = array($name, $image , $price , $quant);
+                        $_SESSION['name'] = $product;
+                    }
+                } ?>
+
+
                   <table class="table">
                     <thead>
                       <tr>
-                        <th></th>
-                        <th></th>
+                        <th>Action</th>
                         <th>Product</th>
+                        <th>Image</th>
                         <th>Price</th>
                         <th>Quantity</th>
                         <th>Total</th>
                       </tr>
                     </thead>
-                    <tbody>
-                      <tr>
-                        <td><a class="remove" href="#"><fa class="fa fa-close"></fa></a></td>
-                        <td><a href="#"><img src="img/man/polo-shirt-1.png" alt="img"></a></td>
-                        <td><a class="aa-cart-title" href="#">Polo T-Shirt</a></td>
-                        <td>$250</td>
-                        <td><input class="aa-cart-quantity" type="number" value="1"></td>
-                        <td>$250</td>
-                      </tr>
-                      <tr>
-                        <td><a class="remove" href="#"><fa class="fa fa-close"></fa></a></td>
-                        <td><a href="#"><img src="img/man/polo-shirt-2.png" alt="img"></a></td>
-                        <td><a class="aa-cart-title" href="#">Polo T-Shirt</a></td>
-                        <td>$150</td>
-                        <td><input class="aa-cart-quantity" type="number" value="1"></td>
-                        <td>$150</td>
-                      </tr>
-                      <tr>
-                        <td><a class="remove" href="#"><fa class="fa fa-close"></fa></a></td>
-                        <td><a href="#"><img src="img/man/polo-shirt-3.png" alt="img"></a></td>
-                        <td><a class="aa-cart-title" href="#">Polo T-Shirt</a></td>
-                        <td>$50</td>
-                        <td><input class="aa-cart-quantity" type="number" value="1"></td>
-                        <td>$50</td>
-                      </tr>
-                      <tr>
-                        <td colspan="6" class="aa-cart-view-bottom">
-                          <div class="aa-cart-coupon">
-                            <input class="aa-coupon-code" type="text" placeholder="Coupon">
-                            <input class="aa-cart-view-btn" type="submit" value="Apply Coupon">
-                          </div>
-                          <input class="aa-cart-view-btn" type="submit" value="Update Cart">
-                        </td>
-                      </tr>
-                      </tbody>
-                  </table>
+                    
+                    <?php 
+                    $bill = 0;
+                    $p = 0;
+                    $q = 0;
+                    $total = 0;
+                    echo '<tbody>';
+                    foreach ($_SESSION as $prod) {
+                        echo"<tr>";
+                            echo'<td><a class="remove" href="#"><fa class="fa fa-close"></fa></a></td>';
+                        foreach ($prod as $key=> $value) {
+                            if ($key==0) {
+
+                                      echo"<input type='hidden' value='".$value."' name='name$key'>";
+                                      echo"<td>".$value."</td>";
+                            } else if ($key==1) {
+
+                                    echo"<input type='hidden' value='".$value."' name='name$key'>";
+                                    echo"<td><img src= admin/".$value." height='100px' width='100px'></td>";
+                                  
+        
+                            } else if ($key==2) {
+
+                                    echo"<input type='hidden' value='".$value."' name='name$key'>";
+                                      echo"<td>$.".$value."</td>";
+                                      $p = $value;
+                            } else if ($key==3) {
+                                    echo"<td><input type='text' value='".$value."' name='name$key'></td>";
+                                      echo"<input type='hidden' value='".$value."' name='name$key'>";
+                                      $q = $value;
+                                    
+          
+                            }
+                        }
+                        $bill = ($p*$q);
+                                echo"<td>".($bill)."</td>";
+                        
+                    }  
+                    echo"</tr>";
+
+
+
+                  
+                    echo'</tbody>';
+                  
+                    ?>
+                  </table>  
                 </div>
              </form>
              <!-- Cart Total view -->
@@ -98,11 +128,11 @@
                  <tbody>
                    <tr>
                      <th>Subtotal</th>
-                     <td>$450</td>
+                     <td>$<?php echo $bill; ?> </td>
                    </tr>
                    <tr>
                      <th>Total</th>
-                     <td>$450</td>
+                     <td>$<?php echo $bill; ?></td>
                    </tr>
                  </tbody>
                </table>
